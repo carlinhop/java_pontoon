@@ -1,13 +1,16 @@
 import java.util.ArrayList;
 
+
 public class Pontoon{
 
   private ArrayList<Player> players;
   private ArrayList<Card> deck;
+  private Player winner;
 
   public Pontoon(){
     this.players = new ArrayList<Player>();
     this.deck = new ArrayList<Card>();
+
   }
 
   public void buildDeck(){
@@ -36,16 +39,42 @@ public class Pontoon{
     return deck;
   }
 
-  // public void deal(){
-  //   for(Player player : this.players){
-  //     Card card1 = new Card(1, SPADES);
-  //     Card card2 = new Card(2,SPADES);
-  //     player.setCard(card1);
-  //     player.setCard(card2);
+  public void deal(){
+    for(Player player : this.players){
+      for(int i = 0; i < 2; i++){
 
-  //   }
-  // }
+        player.setCard(this.deck.get(0));
+        this.deck.remove(0);
+        
+      }
+    }
+  }
+
+  public Player getWinner(){
+    return this.winner;
+  }
+
+  public void setWinner(Player winner){
+    this.winner = winner;
+  }
+
+  public Player checkWinner(){
+    int winnerHand = 0;
+    int playerHand = 0;
+    for (Player player : this.players){
+      
+      playerHand = player.getHand();
+      
+
+      if(winnerHand < playerHand){
+        this.winner = player;
+      }
+    }
+    //System.out.println(winner);
+    //System.out.println(this.winner.getHand());
+    return this.winner;
+  }
+
+
 
 }
-
-// Card card1 = new Card((Math.round(Math.random()*12))+1);
