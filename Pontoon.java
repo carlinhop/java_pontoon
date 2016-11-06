@@ -75,6 +75,12 @@ public class Pontoon{
     return this.winner;
   }
 
+  public void giveCard(Player player){
+    Card card = this.deck.get(0);
+    player.setCard(card);
+    this.deck.remove(0);
+  }
+
 
 
 }

@@ -60,5 +60,12 @@ public void before(){
     assertEquals(game.checkWinner(),game.getWinner());
    }
 
+   @Test
+   public void gameCanGiveCard(){
+    int deckSize = game.getDeck().size();
+    game.giveCard(player1);
+    assertEquals(false , deckSize == game.getDeck().size());
+   }
+
 
 }

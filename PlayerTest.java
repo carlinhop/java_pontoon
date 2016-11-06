@@ -14,7 +14,7 @@ public void before(){
   card1 = new Card(1, Suit.SPADES);
   game.setPlayer(player1);
   game.buildDeck();
-  game.deal();
+  game.deal(); 
 }
 
   @Test
@@ -28,6 +28,7 @@ public void before(){
     
     assertEquals(true, player1.getHand() != 0);
   }
+
 
 
 
